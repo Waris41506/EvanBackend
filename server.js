@@ -79,6 +79,8 @@ app.post("/send-code", async (req, res) => {
   const ADMIN_EMAIL_PASS = process.env.ADMIN_PASS;
 
 
+  console.log("EMAIL:", process.env.ADMIN_EMAIL);
+console.log("PASS length:", process.env.ADMIN_PASS?.length);
   if (!ADMIN_EMAIL || !ADMIN_EMAIL_PASS) {
     return res.status(500).json({ error: "Email credentials not set in environment" });
   }
