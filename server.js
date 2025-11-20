@@ -58,6 +58,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
 
 const app = express();
 
@@ -76,6 +77,7 @@ app.post("/send-code", async (req, res) => {
 
   const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
   const ADMIN_EMAIL_PASS = process.env.ADMIN_PASS;
+
 
   if (!ADMIN_EMAIL || !ADMIN_EMAIL_PASS) {
     return res.status(500).json({ error: "Email credentials not set in environment" });
