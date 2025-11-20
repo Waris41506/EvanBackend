@@ -74,8 +74,8 @@ app.get("/", (req, res) => {
 app.post("/send-code", async (req, res) => {
   const code = Math.floor(1000 + Math.random() * 9000);
 
-  const ADMIN_EMAIL = "yusuffwaris8@gmail.com";
-  const ADMIN_EMAIL_PASS = "qxppranvcsbteoxz";
+  const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+  const ADMIN_EMAIL_PASS = process.env.ADMIN_PASS;
 
   if (!ADMIN_EMAIL || !ADMIN_EMAIL_PASS) {
     return res.status(500).json({ error: "Email credentials not set in environment" });
